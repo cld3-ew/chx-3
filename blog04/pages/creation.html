@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>创作者中心</title>
+  <link rel="stylesheet" href="../static/layui/css/layui.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+  <ul class="layui-nav layui-bg-blue crea_nav">
+    <li class="layui-nav-item" id="indd"><a href="/">首页</a></li>
+    <li class="layui-nav-item"><a href="">汉文化</a></li>
+    <li class="layui-nav-item"><a href="">论坛</a></li>
+    <li class="layui-nav-item">
+      <a href="javascript:;">问答</a>
+      <dl class="layui-nav-child">
+        <dd><a href="">移动模块</a></dd>
+        <dd><a href="">后台模版</a></dd>
+        <dd><a href="">电商平台</a></dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item"><a href="">直播</a></li>
+    <li class="layui-nav-item"><a href="">汉服</a></li>
+    <li class="layui-nav-item"><input type="text" placeholder="搜索"></li>
+    <li class="layui-nav-item"><img src="../static/images/creation/头像.jpg" alt=""></li>
+    <li class="layui-nav-item"><a href="">会员中心</a></li>
+    <li class="layui-nav-item"><a href="">创作者中心</a></li>
+  </ul> 
+
+  <div class="crea_let">
+    <img src="../static/images/creation/头像.jpg" alt="" class="img1">
+    <span style="font-size: 24px;">王权</span>
+    <img src="../static/images/creation/金牌.png" alt="" class="img2">
+    <span>金牌博主</span>
+    <table>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>原创</td>
+        <td>周排名</td>
+        <td>总排名</td>
+        <td>历史</td>
+        <td>访问</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>积分</td>
+        <td>粉丝</td>
+        <td>获赞</td>
+        <td>评论</td>
+        <td>收藏</td>
+      </tr>
+    </table>
+    <hr>
+    <button class="wblg" style="width: 150px; height: 35px;" id="btn_show">写博客</button>
+    <button class="wblg" style="width: 150px; height: 35px;" id="fwb_show">富文本</button>
+  </div>
+
+  <!-- 写博客板块 -->
+  <div class="crea_write" id="b_writ">
+    主题:<input type="text" name="b_title"><br>
+    类型:<input type="radio" name="lx" value="原创">原创<input type="radio" name="lx" value="转载">转载
+        <input type="radio" name="lx" value="翻译">翻译<input type="radio" name="lx" value="其他">其他<br>
+    封面：<div class="a1"><form enctype="multipart/form-data">
+          <input type="file" name='file' id='file'>
+        </form></div>
+        <div class="upfm" id="upfm"></div>
+    前言：<input type="text" name="qy" style="width: 670px; height: 25px;"><br>
+    <!-- 方式一：上传附件到数据库
+    <button>图片</button><button>文档</button><button>视频</button> -->
+    <!-- 方式二：上传markdown到数据库 -->
+    正文:<div class="zw">
+           <div class="wt">
+             <textarea id="textarea">
+
+             </textarea>
+            </div>
+            <div class="md yyy3" id="content"></div>
+         </div>
+    <button id="upblog">上传</button>
+  </div>
+
+  <script src="../static/layui/layui.all.js"></script>
+  <script src="../static/marked.min.js"></script>
+  <script>
+     //跳转到首页
+     const $ = layui.jquery
+     $("#indd").on('click', ()=> {
+        location.href='goLogin'
+     })
+     //跳转到富文本编写页面
+     $("#fwb_show").on('click', ()=> {
+        location.href='addblog'
+     })
+
+    //点击写博客显示写博客板块
+    //window.onload = function () {
+        /* window意思是窗口     onload是加载     意思是页面加载完毕后，才执行里面的js ，所以可以放在顶端*/
+        var div1 = document.getElementById("b_writ");
+        /*获取图片img="id"给变量 img*/
+        var btn_show = document.getElementById("btn_show");
+        /*获取显示按钮id="btn_show"给变量 btn_show*/
+        var btn_hidden = document.getElementById("btn_hidden");
+        /*获取隐藏按钮id=“btn_show”给变量 btn_hidden */
+
+        btn_show.onclick = function () {
+            div1.style.display = "block";
+        }
+        /*点击显示按钮时，img的样式style的display属性赋值为“block”，下同理*/
+        // btn_hidden.onclick = function () {
+        //     div1.style.display = "none";
+        // }
+    //}
+
+    //封面上传
+    $(function() {
+        $('#file').on('change', () => {
+            let file = $('#file')[0].files[0]//Multer添加一个files对象到 express 的 request 对象中,file 或 files 对象包含对象表单上传的文件信息
+            var formData = new FormData()   //该对象可异步上传二进制文件
+            formData.append('file', file)   //将文件file对象加入form对象
+            $.ajax({
+                url: '/upload',
+                type:'post',
+                contentType: false,//发送数据的格式，这里表示不为默认的application/x-www-form-urlencoded，否则无法上传
+                processData: false,//处理数据，这里表示不转为字符串
+                data: formData,                    
+                success: (res) => {
+                    console.log("图片相对路径：", res.data)//浏览器控制台打印成功信息
+                    let img = `<img src='${res.data}' alt='图片' class='hhh'>`
+                    $('#upfm').html(img)
+                }
+            })
+        })
+    })
+    
+    //markdown功能实现
+    $('#textarea').on('input propertychange',function(){
+        var ss = $(this).val();
+        //console.log(ss)
+        document.getElementById('content').innerHTML = marked(ss);
+    })
+
+    //点击上传，添加该页面的博文数据到数据库
+    $("#upblog").on('click', ()=> {
+      let uid =localStorage.getItem("user_id");
+      if(uid == null){
+        layer.msg('你还没有登录，登录一下试试！！！')
+      }
+      let bg1 = $('input[name=b_title]').val()
+      let bg2 = $('input[name=lx]').val()
+      //let bg3 = ''
+      let bg4 = $('input[name=qy]').val()
+      let bg5 = $('#textarea').val()
+      console.log("uid:"+uid+"bg1:"+bg1+"bg2:"+bg2+"bg4:"+bg4+"bg5:"+bg5)
+      //博文上传的请求
+      $.ajax({
+          url: 'upblog',
+          type: 'post',
+          //dataType: 'json',
+          data: {
+            user_id : uid,
+            blog_title : bg1,
+            blog_type : bg2,
+            //blog_pic : '',
+            foreword : bg4,
+            blog_content : bg5
+          },
+          success: (resp)=> {
+            console.log("resp:", resp)
+              if(resp.code == 0) {
+                layer.msg(resp.msg);
+              } else {
+                layer.msg(resp.msg)
+              }
+          }
+      })
+    })
+
+  </script>
+</body>
+</html>

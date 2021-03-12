@@ -1,0 +1,204 @@
+.crea_nav input{
+  height: 24px;
+  border-radius: 5px;
+  margin-left: 400px;
+}
+.crea_nav img{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 25px;
+}
+.crea_let{
+  width: 350px;
+  height: auto;
+  border: 1px solid gray;
+  margin-left: 150px;
+}
+.crea_let .img1{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+.crea_let .img2{
+  width: 15px;
+  height: 15px;
+  max-width: 15px;
+}
+.crea_let table td{
+  width: 55px;
+  height: 25px;
+}
+.crea_write{
+  position: relative;
+  left: 510px;
+  top: -340px;
+  width: 800px;
+  height: 1100px;
+  border: 1px solid gray;
+  /* display: none; */
+}
+.upfm{
+  width: 680px;
+  height: 170px;
+  border: 1px solid gray;
+  margin-left: 35px;
+}
+.crea_write .zw{
+  width: 685px;
+  height: 705px;
+  /* border: 1px solid gray; */
+  margin-left: 35px;
+}
+.crea_write input:nth-child(1){
+  width: 680px;
+  height: 25px;
+}
+.crea_write input{
+  margin-top: 10px;
+}
+.crea_write button{
+  width: 70px;
+  height: 35px;
+  margin-left: 350px;
+  margin-top: 7px;
+}
+.crea_write .wt{
+  width: 680px;
+  height: 350px;
+  /* border: 1px solid gray; */
+}
+.wt textarea{
+  width: 680px;
+  height: 350px;
+}
+.crea_write .md{
+  width: 680px;
+  height: 350px;
+  border: 1px solid gray;
+  /* position: relative;
+  left: 343px;
+  top: -702px; */
+}
+.wblg{
+  margin-top: 10px;
+  margin-left: 35px;
+}
+.crea_write .a1{
+  position: relative;
+  left: 50px;
+  top: -25px;
+}
+.hhh{
+  width: 600px;
+  height: 165px;
+}
+.u_sx{
+  width: 120px;
+  height: 35px;
+  border: 1px solid rgb(153, 150, 150);
+  border-radius: 3px; 
+  background: linear-gradient(92deg,#ffba40,#ff503e 37%,#ff2f50 81%,#ff1b40);
+  color: white;
+  margin: 15px 35px 35px;
+}
+.u_gz{
+  width: 120px;
+  height: 35px;
+  border: 1px solid rgb(172, 169, 169);
+  background: linear-gradient(92deg,#ffba40,#ff503e 37%,#ff2f50 81%,#ff1b40);
+  color: white;
+  border-radius: 3px; 
+}
+.userc_r{
+  width: 900px;
+  height: 700px;
+  border: 1px solid gray;
+  position: absolute;
+  left: 505px;
+  top: 300px;
+}
+.user_f li{
+  list-style: none;
+  float: left;
+  font-size: 16px;
+  margin: 25px 35px;
+}
+.userc_type{
+  margin-top: 10px;
+}
+.userc_x{
+  margin-left: 130px;
+}
+.mi {
+  width: 800px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+.hhh1{
+display: inline-block;
+}
+.hhh12{
+display: inline-block;
+width: 30px;
+background-color: green;
+color: white;
+}
+.time01{
+  margin-top: 5px;
+}
+.bloger{
+  border: 1px solid gray;
+}
+.ucfy{
+  position: absolute;
+  bottom: 5px;
+  left: 550px;
+}
+.uc_page ul li{
+  border: 1px solid gray;
+  float: left;
+  padding: 5px 12px;
+}
+.uc_page ul{
+  position: absolute;
+  top: 650px;
+  left: 660px;
+}
+#ucent{
+  width: 900px;
+  height: 453px;
+  overflow: hidden;
+}
+.uc_msg{
+  width: 300px;
+  height: auto;
+  border: 1px solid gray;
+  display: none;
+}
+.uc_msg h2{
+  text-align: center;
+}
+.hhh{
+  width: 50px;
+  height: 50px;
+}
+.crea_let .delf{
+  width: 348px;
+  height: 80px;
+  border: 1px solid gray;
+}
+.crea_let .delf input{
+  width: 220px;
+  height: 35px;
+  margin-top: 17px;
+  margin-left: 20px;
+}
+.crea_let .delf button{
+  width: 45px;
+  height: 38px;
+  margin-left: -5px;
+}

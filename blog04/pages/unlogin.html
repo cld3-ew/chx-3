@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error</title>
+  <link rel="stylesheet" href="../static/layui/css/layui.css">
+</head>
+<body>
+  <h3>你还没有登录，请先登录！！！</h3>
+  <button type="button" class="layui-btn layui-btn-normal" id="dddd">去登录</button>
+  <button type="button" class="layui-btn layui-btn-warm" id="iiii">回首页</button>
+  <script src="../static/layui/layui.all.js"></script>
+  <script>
+    //跳转到登录页面
+    const $ = layui.jquery
+     $("#dddd").on('click', ()=> {
+        location.href='goLogin'
+     })
+    //跳转到首页
+    $("#iiii").on('click', ()=> {
+      location.href='/'
+    })
+  </script>
+</body>
+</html>

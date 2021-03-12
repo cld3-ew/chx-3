@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人中心</title>
+  <link rel="stylesheet" href="../static/layui/css/layui.css">
+  <link rel="stylesheet" href="../static/css/style2.css">
+</head>
+<body>
+  <ul class="layui-nav layui-bg-blue crea_nav">
+    <li class="layui-nav-item" id="indd"><a href="/">首页</a></li>
+    <li class="layui-nav-item"><a href="">汉文化</a></li>
+    <li class="layui-nav-item"><a href="">论坛</a></li>
+    <li class="layui-nav-item">
+      <a href="javascript:;">问答</a>
+      <dl class="layui-nav-child">
+        <dd><a href="">移动模块</a></dd>
+        <dd><a href="">后台模版</a></dd>
+        <dd><a href="">电商平台</a></dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item"><a href="">直播</a></li>
+    <li class="layui-nav-item"><a href="">汉服</a></li>
+    <li class="layui-nav-item"><input type="text" placeholder="搜索"></li>
+    <li class="layui-nav-item"><img src="../static/images/creation/头像.jpg" alt=""></li>
+    <li class="layui-nav-item"><a href="">会员中心</a></li>
+    <li class="layui-nav-item"><a href="">创作者中心</a></li>
+  </ul> 
+  
+  <img src="../static/images/usercent/分隔.png" style="width: 1518px; height: 200px;">
+
+  <div class="crea_let">
+    <img src="../static/images/creation/头像.jpg" alt="" class="img1" id="headimg">
+    <span style="font-size: 24px;">王权</span>
+    <img src="../static/images/creation/金牌.png" alt="" class="img2">
+    <span>金牌博主</span>
+    <table>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>原创</td>
+        <td>周排名</td>
+        <td>总排名</td>
+        <td>历史</td>
+        <td>访问</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>积分</td>
+        <td>粉丝</td>
+        <td>获赞</td>
+        <td>评论</td>
+        <td>收藏</td>
+      </tr>
+    </table>
+    <hr>
+    <button class="u_sx">私信</button>
+    <button class="u_gz">关注</button>
+    <div class="uc_msg" id="user_msg">
+      <h2>完善个人信息</h2>
+      昵称：<input type="text" name="nick"><br>
+      头像：<form enctype="multipart/form-data">
+             <input type="file" name='file' id='file'>
+            </form>
+            <div id="upfm"></div>
+      个性签名：<input type="text" name="sign">
+      <button id="uput">上传</button>
+    </div>
+  </div>
+
+  <div class="userc_r">
+    <ul class="user_f">
+      <li>博客(2000)</li>
+      <li>资源(20)</li>
+      <li>论坛(50)</li>
+      <li>问答(50)</li>
+      <li>收藏(50)</li>
+      <li>关注(50)</li>
+    </ul>
+    <hr>
+    <div class="layui-inline userc_x">
+      <label class="layui-form-label">类型:</label>
+      <div class="layui-input-inline userc_type" id="bl_ty">
+        <select name="modules" lay-verify="required" lay-search="">
+          <option value="原创">原创</option>
+          <option value="转载">转载</option>
+          <option value="翻译">翻译</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+    </div> 
+    <div class="layui-inline userc_x">
+      <label class="layui-form-label">排序:</label>
+      <div class="layui-input-inline userc_type" id="uc_ty2">
+        <select name="modules" lay-verify="required" lay-search="">
+          <option value="0">发布时间</option>
+          <option value="1">获赞数</option>
+          <option value="2">访问量</option>
+          <option value="3">热度</option>
+        </select>
+      </div>
+      </div> 
+      <hr>
+      <div id="ucent">
+        <div class="bloger" id="11122">
+          <div class="user_blogs">
+            <div class="title">
+              <input type="text" value="原创" class="hhh12" readonly>
+                <h2 class="hhh1">我向你奔赴而来，你就是星辰大海</h2>
+            </div>
+            <div class="mi">每当你向我走来,告诉我星辰大海,会不会我们的爱像星辰守护大海,不曾离开.我向你奔赴而来,你就是星辰大海,我眼中炽热的恒星,长夜里照我前行会不会我们
+              的爱,会被风吹向大海不再回来每当你向我走来告诉我星辰大海，每当你向我走来,告诉我星辰大海,会不会我们的，每当你向我走来,告诉我星辰大海,会……</div>
+          </div>
+          <p class="time01">2020.10.23 23:15:06</p>
+        </div>
+      </div>  
+      <!-- <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+        <legend>总页数低于页码总数</legend>
+      </fieldset> 
+      <div id="demo0" class="ucfy"></div>-->
+
+      <!-- 底部分页条 -->
+      <div class="uc_page">
+        <ul id="uc_page">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+      </div>
+  </div>
+
+  <script src="../static/layui/layui.all.js"></script>
+  <script>
+    const $ = layui.jquery
+    //获取不同类型博文
+    $(function(){
+      //点击时获取下拉列表的值
+      $("#bl_ty").on('click', ()=> {
+      let  blog_type = $('#bl_ty').find("option:selected").val();
+      console.log(blog_type)
+      $.ajax({
+          url : 'getblogyc',
+          type : 'get',
+          dataType : 'JSON',
+          data : {
+            blog_type
+          },
+          success : (res) => {  
+            if(res.code == 0){
+              console.log(res.data)
+              let list = res.data;
+              let blogs ='';
+              list.forEach(item => {
+                blogs += `<div class="bloger" id="${item.id}">
+                            <div class="user_blogs">
+                              <div class="title">
+                                <input type="text" value="${item.blog_type}" class="hhh12" readonly>
+                                  <h2 class="hhh1">${item.blog_title}</h2>
+                                  <input type="hidden" id="blog_id" value="${item.id}" >
+                              </div>
+                              <div class="mi">${item.blog_content}</div>
+                            </div>
+                            <p class="time01">${item.create_time}</p>
+                          </div>`
+              });
+              $("#ucent").html(blogs)
+              //点击获取博文的id
+              $('.bloger').click(function(event) {
+                var event=event||e; 
+                var blog_id = event.currentTarget.id
+                console.log("blog_id="+blog_id);  //获取id属性值
+                //将博文id存入session
+                var storage = sessionStorage;  
+                storage.setItem('id', blog_id);  
+                //跳转到博文详情页
+                location.href='detail'
+                //将博文id存入session
+                // $.ajax({
+                //   url : 'goDetail',
+                //   type : 'get',
+                //   dataType : 'JSON',
+                //   data : {
+                //     blog_id
+                //   }
+                // })
+              });
+
+            }else {
+              layer.msg(res.msg)
+            } 
+          }
+      })
+    })
+
+    //显示分页条
+    // layui.use(['laypage', 'layer'], function(){
+    // var laypage = layui.laypage
+    // ,layer = layui.layer;
+    //总页数低于页码总数
+    // laypage.render({
+    //   elem: 'demo0'
+    //   ,count: 50 //数据总数
+    // });
+    // })
+
+    //分页显示博文
+    //点击获取li的下标
+    $("#uc_page").on("click","li",function(){
+      let index = $(this).index();
+      console.log(index)
+      $.ajax({
+          url : 'getblogpage',
+          type : 'get',
+          dataType : 'JSON',
+          data : {
+            index
+          },
+          success : (res) => {  
+            if(res.code == 0){
+              console.log(res.data)
+              let list = res.data;
+              let blogs ='';
+              list.forEach(item => {
+                blogs += `<div class="bloger" id="${item.id}">
+                            <div class="user_blogs">
+                              <div class="title">
+                                <input type="text" value="${item.blog_type}" class="hhh12" readonly>
+                                  <h2 class="hhh1">${item.blog_title}</h2>
+                                  <input type="text" value="${item.id}" hidden>
+                              </div>
+                              <div class="mi">${item.blog_content}</div>
+                            </div>
+                            <p class="time01">${item.create_time}</p>
+                          </div>`
+              });
+              $("#ucent").html(blogs)
+              //点击获取博文的id
+              $('.bloger').click(function(event) {
+                var event=event||e; 
+                var blog_id = event.currentTarget.id
+                console.log("blog_id="+blog_id);  //获取id属性值
+                //将博文id存入session
+                var storage = sessionStorage;  
+                storage.setItem('id', blog_id); 
+                //跳转到博文详情页
+                location.href='detail'
+                //将博文id存入session
+                // $.ajax({
+                //   url : 'goDetail',
+                //   type : 'get',
+                //   dataType : 'JSON',
+                //   data : {
+                //     blog_id
+                //   }
+                // })
+              });
+
+            }else {
+              layer.msg(res.msg)
+            } 
+          }
+      })
+    })
+
+    //点击发布时间，显示倒序的上传时间的博文
+    $("#uc_ty2").on('click', ()=> {
+      let  blog_index = $('#uc_ty2').find("option:selected").index();
+      console.log(blog_index)
+      if(blog_index != 0){//判断是否为发布时间选项
+            return;
+          }
+      $.ajax({
+          url : 'getblogtimer',
+          type : 'get',
+          dataType : 'JSON',
+          // data : {
+          //   blog_index
+          // },
+          success : (res) => {  
+            if(res.code == 0){
+              console.log(res.data)
+              let list = res.data;
+              let blogs ='';
+              list.forEach(item => {
+                blogs += `<div class="bloger" id="${item.id}">
+                            <div class="user_blogs">
+                              <div class="title">
+                                <input type="text" value="${item.blog_type}" class="hhh12" readonly>
+                                  <h2 class="hhh1">${item.blog_title}</h2>
+                                  <input type="text" value="${item.id}" hidden>
+                              </div>
+                              <div class="mi">${item.blog_content}</div>
+                            </div>
+                            <p class="time01">${item.create_time}</p>
+                          </div>`
+              });
+              $("#ucent").html(blogs)
+              //点击获取博文的id
+              $('.bloger').click(function(event) {
+                var event=event||e; 
+                var blog_id = event.currentTarget.id
+                console.log("blog_id="+blog_id);  //获取id属性值
+                //将博文id存入session
+                var storage = sessionStorage;  
+                storage.setItem('id', blog_id); 
+                //跳转到博文详情页
+                location.href='detail'
+                //将博文id存入session
+                // $.ajax({
+                //   url : 'goDetail',
+                //   type : 'get',
+                //   dataType : 'JSON',
+                //   data : {
+                //     blog_id
+                //   }
+                // })
+              });
+              
+            }else {
+              layer.msg(res.msg)
+            } 
+          }
+      })
+    })
+
+    //完善个人信息
+    var div1 = document.getElementById("user_msg");
+    var u_show = document.getElementById("headimg");
+    //var u_hidden = document.getElementById("btn_hidden");
+    u_show.onclick = function () {
+        div1.style.display = "block";
+    }
+    // btn_hidden.onclick = function () {
+    //     div1.style.display = "none";
+    // }
+
+    //头像上传到本地文件夹
+    $('#file').on('change', () => {
+        let file = $('#file')[0].files[0]//Multer添加一个files对象到 express 的 request 对象中,file 或 files 对象包含对象表单上传的文件信息
+        var formData = new FormData()   //该对象可异步上传二进制文件
+        formData.append('file', file)   //将文件file对象加入form对象
+        $.ajax({
+            url: '/upload',
+            type:'post',
+            contentType: false,//发送数据的格式，这里表示不为默认的application/x-www-form-urlencoded，否则无法上传
+            processData: false,//处理数据，这里表示不转为字符串
+            data: formData,                    
+            success: (res) => {
+                console.log("图片相对路径：", res.data)//浏览器控制台打印成功信息
+                let img = `<img src='${res.data}' alt='图片' class='hhh'>`
+                $('#upfm').html(img)
+            }
+        })
+    })
+
+    //点击上传，添加个人信息到数据库
+    $("#uput").on('click', ()=> {
+      let uid =localStorage.getItem("user_id");
+      if(uid == null){
+        layer.msg('你还没有登录，登录一下试试！！！')
+      }
+      let nick = $('input[name=nick]').val()
+      let sign = $('input[name=sign]').val()
+      console.log("uid:"+uid+"nick:"+nick+"sign:"+sign)
+      //个人信息上传的请求
+      $.ajax({
+          url: 'usermsg',
+          type: 'post',
+          data: {
+            id : uid,
+            nick : nick,
+            sign : sign
+          },
+          success: (resp)=> {
+            console.log("resp:", resp)
+              if(resp.code == 0) {
+                layer.msg(resp.msg);
+              } else {
+                layer.msg(resp.msg)
+              }
+          }
+      })
+    })
+
+    //点击博文的div获取当前博文的id
+    // $('.bloger').click(function(event) {
+		// 	var event=event||e;
+		// 	console.log(event.currentTarget.id);  //获取id属性值 
+		// 	//获取当前操作下标
+		// 	console.log($(this).index());
+		// });
+
+    
+  
+
+  });
+  </script>
+</body>
+</html>

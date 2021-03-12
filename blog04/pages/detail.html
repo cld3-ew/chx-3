@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博文详情页</title>
+  <link rel="stylesheet" href="../static/layui/css/layui.css">
+  <link rel="stylesheet" href="../static/css/style2.css">
+</head>
+<body>
+  <ul class="layui-nav layui-bg-blue crea_nav">
+    <li class="layui-nav-item" id="indd"><a href="/">首页</a></li>
+    <li class="layui-nav-item"><a href="">汉文化</a></li>
+    <li class="layui-nav-item"><a href="">论坛</a></li>
+    <li class="layui-nav-item">
+      <a href="javascript:;">问答</a>
+      <dl class="layui-nav-child">
+        <dd><a href="">移动模块</a></dd>
+        <dd><a href="">后台模版</a></dd>
+        <dd><a href="">电商平台</a></dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item"><a href="">直播</a></li>
+    <li class="layui-nav-item"><a href="">汉服</a></li>
+    <li class="layui-nav-item"><input type="text" placeholder="搜索"></li>
+    <li class="layui-nav-item"><img src="../static/images/creation/头像.jpg" alt=""></li>
+    <li class="layui-nav-item"><a href="">会员中心</a></li>
+    <li class="layui-nav-item"><a href="">创作者中心</a></li>
+  </ul> 
+  
+  <img src="../static/images/usercent/分隔.png" style="width: 1518px; height: 200px;">
+
+  <div class="crea_let">
+    <img src="../static/images/creation/头像.jpg" alt="" class="img1" id="headimg">
+    <span style="font-size: 24px;">王权</span>
+    <img src="../static/images/creation/金牌.png" alt="" class="img2">
+    <span>金牌博主</span>
+    <table>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>原创</td>
+        <td>周排名</td>
+        <td>总排名</td>
+        <td>历史</td>
+        <td>访问</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>积分</td>
+        <td>粉丝</td>
+        <td>获赞</td>
+        <td>评论</td>
+        <td>收藏</td>
+      </tr>
+    </table>
+    <hr>
+    <button class="u_sx">私信</button>
+    <button class="u_gz">关注</button>
+    <div class="delf">
+      <input type="text" id="study">
+      <button id="btn">搜索</button>
+    </div>
+  </div>
+
+  <!-- 博文详情 -->
+<div id="ucent1">
+  <div class="userc_r">
+    <h2>我向你奔赴而来，你就是星辰大海</h2>
+    <input type="text" value="原创" class="hhh12" readonly>
+    <span>王权</span><span class="time01">2020.10.23 23:15:06</span>
+    <span><img src="../static/images/usercent/观看.png" style="width: 17px; height: 17px;">198.5W</span>
+    <span><img src="../static/images/usercent/收 藏.png" style="width: 17px; height: 17px;"></span>
+    <p>分类专栏：动漫</p>
+    <h3>前言</h3>
+    <div style="width: 900px; height: 35px; margin-top: 15px;">每当你向我走来,告诉我星辰大海,会不会我们的爱像星辰守护大海</div>
+    <img src="../static/images/213818-15839338980c37.jpg" style="width: 900px;">
+    <div>
+      每当你向我走来,告诉我星辰大海,会不会我们的爱像星辰守护大海,不曾离开.我向你奔赴而来,你就是星辰大海,我眼中炽热的恒星,长夜里照我前行会不会我们
+              的爱,会被风吹向大海不再回来每当你向我走来告诉我星辰大海，每当你向我走来,告诉我星辰大海,会不会我们的，每当你向我走来,告诉我星辰大海,会…
+    </div>
+  </div>
+</div>
+  <script src="../static/layui/layui.all.js"></script>
+  <script>
+    const $ = layui.jquery
+    $(function(){
+      //获取session中的id
+      var str = sessionStorage;  
+      let id = str.getItem("id");
+      console.log("111="+id)
+      $.ajax({
+          url : 'getBlogDe',
+          type : 'get',
+          dataType : 'JSON',
+          data : {
+                    id
+                  },
+          success : (res) => {
+            if(res.code == 0){
+              console.log(res.data)
+              let list = res.data;
+              let blogs ='';
+              list.forEach(item => {
+                blogs += `<div class="userc_r">
+    <h2>${item.blog_title}</h2>
+    <input type="text" value="${item.blog_type}" class="hhh12" readonly>
+    <span>${item.nickname}</span><span class="time01">${item.update_time}</span>
+    <span><img src="../static/images/usercent/观看.png" style="width: 17px; height: 17px;">198.5W</span>
+    <span><img src="../static/images/usercent/收 藏.png" style="width: 17px; height: 17px;"></span>
+    <p>分类专栏：动漫</p>
+    <h3>前言</h3>
+    <div style="width: 900px; height: 35px; margin-top: 15px;">${item.foreword}</div>
+    <img src="${item.blog_pic}" style="width: 900px;">
+    <div>
+      ${item.blog_content}
+    </div>
+  </div>
+                `
+              });
+              //替换
+              $("#ucent1").html(blogs)
+            }
+          }
+      })
+
+      //搜索博文
+      //获取搜索框中的值
+      document.getElementById("btn").onclick = function(){
+        var v=document.getElementById("study").value;
+        //alert(v);
+        $.ajax({
+          url : 'getBlogDet',
+          type : 'get',
+          dataType : 'JSON',
+          data : {
+                    v
+                  },
+          success : (res) => {
+            if(res.code == 0){
+              console.log(res.data)
+              let list = res.data;
+              let blogs ='';
+              list.forEach(item => {
+                blogs += `<div class="userc_r">
+    <h2>${item.blog_title}</h2>
+    <input type="text" value="${item.blog_type}" class="hhh12" readonly>
+    <span>${item.nickname}</span><span class="time01">${item.update_time}</span>
+    <span><img src="../static/images/usercent/观看.png" style="width: 17px; height: 17px;">198.5W</span>
+    <span><img src="../static/images/usercent/收 藏.png" style="width: 17px; height: 17px;"></span>
+    <p>分类专栏：动漫</p>
+    <h3>前言</h3>
+    <div style="width: 900px; height: 35px; margin-top: 15px;">${item.foreword}</div>
+    <img src="${item.blog_pic}" style="width: 900px;">
+    <div>
+      ${item.blog_content}
+    </div>
+  </div>
+                `
+              });
+              //替换
+              $("#ucent1").html(blogs)
+            }else {
+                layer.msg(res.msg)
+            }
+          }
+      })
+
+      }
+      
+  })
+  </script>
+</body>
+</html>
